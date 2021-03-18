@@ -1,0 +1,62 @@
+﻿@model Common.Models.Direccion
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Create</h1>
+
+<h4>Direccion</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="StringDireccion" class="control-label"></label>
+                <input asp-for="StringDireccion" class="form-control" />
+                <span asp-validation-for="StringDireccion" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="TipoDireccion" class="control-label"></label>
+                <select asp-for="TipoDireccion" class="form-control"></select>
+                <span asp-validation-for="TipoDireccion" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="EstudianteId" class="control-label"></label>
+                <select asp-for="EstudianteId" class ="form-control" asp-items="ViewBag.EstudianteId"></select>
+            </div>
+            <div class="form-group form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" asp-for="EstaBorrado" /> @Html.DisplayNameFor(model => model.EstaBorrado)
+                </label>
+            </div>
+            <div class="form-group">
+                <label asp-for="FechaCreacion" class="control-label"></label>
+                <input asp-for="FechaCreacion" class="form-control" />
+                <span asp-validation-for="FechaCreacion" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="FechaBorrado" class="control-label"></label>
+                <input asp-for="FechaBorrado" class="form-control" />
+                <span asp-validation-for="FechaBorrado" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="FechaActualizacion" class="control-label"></label>
+                <input asp-for="FechaActualizacion" class="form-control" />
+                <span asp-validation-for="FechaActualizacion" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
